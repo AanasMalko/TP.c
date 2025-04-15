@@ -1,0 +1,57 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+typedef struct {
+   int valeur;
+   Noeud *suivant;
+   Noeud *precedent;
+} Noeud;
+Noeud *Creer (int val,int debut){
+   Noeud *NV = malloc (sizeof(Noeud));
+   NV->valeur=val;
+   NV->suivant=NULL;
+   NV->precedent=NULL;
+   return NV;
+          }
+void afficher ( Noeud *debut){
+Noeud *ptr = debut;
+while (ptr!=NULL)
+{
+  ptr = ptr->suivant;
+}
+}
+Noeud *ajouterD(Noeud *debut,int val){
+Noeud *NV = Creer(val);
+NV->suivant=debut;
+if (debut=!NULL)
+debut->precedent=NV;
+debut=NV;
+}
+Noeud *ajouterF (Noeud *debut,int val){
+  Noeud *NV = Creer(val);
+  if (debut== NULL)
+  debut = NV;
+  else{
+   Noeud *ptr =debut;
+   while (ptr->suivant!=NULL)
+   {
+      ptr=ptr->suivant;
+      ptr->suivant=NV;
+      NV->precedent=ptr;
+   }
+   return debut;
+  }
+}
+void AfficherI (Noeud *debut){
+   Noeud *ptr = debut;
+   while (ptr!=NULL)
+   {
+      printf("la valeur est %d\n",ptr->valeur);
+      ptr=ptr->precedent;
+
+   }
+}
+int main (){
+   
+}
