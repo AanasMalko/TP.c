@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+typedef struct Noeud {
+    int valeur;
+    struct Noeud *suivant;   
+} Noeud;
+void push (Noeud **top,int valeur){
+Noeud **N;
+N=(Noeud*)malloc(sizeof(Noeud));
+if (!N)
+{
+printf("erreur d'allocation :");
+} else {
+    N->valeur = valeur;
+    N->suivant = *top;
+    *top = N;
+}
+}
+void pop (Noeud **top) {
+    if (*top==NULL){
+        printf("erreur");
+        return;
+    }
+    Noeud *temp = *top;
+    *top = (*top)->suivant;
+    printf("element %d",temp->valeur);
+    free(temp);
+ }
+ void peek(Noeud **top){
+     if (*top == NULL){
+         printf("la pile est vide");
+     } else {
+         printf ("%d",(*top)->valeur);
+     }
+ }
+ void afficher (Noeud *top){
+    if (top == NULL) {
+        printf("vide");
+        return;
+    }
+    Noeud *temp = top;
+    while (temp != NULL) {
+        printf("%d ", temp->valeur);
+        temp = temp->suivant;
+    }  } 
