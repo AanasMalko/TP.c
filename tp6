@@ -1,0 +1,68 @@
+// Exercice 1 : Ecriture dans un fichier texte
+FILE *fichier = fopen(C:\\Users\Aanas\\OneDrive\\Bureau\\test.txt, "w");
+if (fichier == NULL) {
+    printf("Erreur d'ouverture du fichier.\n");
+    return 1;
+}
+printf("entrez votre nom :");
+scanf("%s", nom);
+printf("entrez votre age :");
+scanf("%d", &age);
+fprintf(fichier, "Nom: %s\n", nom);
+fprintf(fichier, "Age: %d\n", age);
+fclose(fichier);
+printf("les données enregistrees avec succès.\n");
+-------------------------------------------------------------------------------
+// Exercice 2 : Lecture d'un fichier texte
+FILE *fichier = fopen(C:\\Users\Aanas\\OneDrive\\Bureau\\test.txt, "r");
+if (fichier == NULL) {
+    printf("Erreur d'ouverture du fichier.\n");
+    return 1;
+}
+printf("entrez votre nom :");
+scanf("%s", nom);
+printf("entrez votre age :");
+scanf("%d", &age);
+fprintf(fichier, "Nom: %s\n", nom);
+fprintf(fichier, "Age: %d\n", age);
+fclose(fichier);
+printf("les données enregistrees avec succès.\n");
+-------------------------------------------------------------------------------
+// Exercice 3 : copie du contenu d'un fichier texte 
+FILE *source = fopen(C:\\Users\Aanas\\OneDrive\\Bureau\\test.txt, "r");
+FILE *dest = fopen(C:\\Users\Aanas\\OneDrive\\Bureau\\copie.txt, "w");
+if (source == NULL || dest == NULL) {
+    printf("Erreur d'ouverture du fichier.\n");
+    return 1;
+}
+char c;
+while ((c = fgetc(source)) != EOF) {
+    fputc(c, dest);
+}
+fclose(source);
+fclose(dest);
+printf("copie terminée avec succès.\n");
+return 0;
+--------------------------------------------------------------------------------
+// Exercice 4 : Comptage des lignes, mots et caracteres
+FILE *fichier = fopen(C:\\Users\Aanas\\OneDrive\\Bureau\\test.txt, "r");
+if (fichier == NULL) {
+    printf("Erreur");
+    return 1;
+}
+int lignes = 0, mots = 0, caracteres = 0;
+char c;
+while ((c = fgetc(fichier)) != EOF) {
+    caracteres++;
+    if (c == '\n') {
+        lignes++;
+    }
+    if (c == ' ' || c == '\n' || c == '\t') {
+        mots++;
+    }
+}
+fclose(fichier);
+printf("Nombre de lignes :%d", lignes);
+printf("Nombre de mots : %d", mots);
+printf("Nombre de caracteres : %d", caracteres);
+return 0;
